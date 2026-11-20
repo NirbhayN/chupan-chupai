@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HIDEOUT
 
 A browser based 3D hide and seek game with a Colyseus authoritative room server. The first playable map is Secret Courtyard: a central fountain plaza ringed by a hedge maze, a shipping yard, an overgrown garden with tall grass, and a market alley with stalls and laundry lines (16 enterable hiding objects, 4 grass fields). The two procedural chibi avatars follow the supplied screenshots: oversized rounded heads, compact bodies, the boy's dark hair/red cap/yellow shirt, and the girl's light buns/white accessories.
@@ -61,3 +62,7 @@ The attached images are references only; they are not displayed as game art. The
 ## Current scope
 
 Secret Courtyard, two character choices, private invites, real player synchronization, hiding/searching, gems, tag validation, seeker pulse, results and replay are implemented. Outfit customization, additional maps, music, sound effects, skeletal animation, and production persistence are future work. Jumping is visual and does not allow climbing obstacles.
+=======
+# chupan-chupai
+hmm
+>>>>>>> 1c61233 (Initial commit)

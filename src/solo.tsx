@@ -52,7 +52,7 @@ export function SoloTest({character,onExit}:{character:string;onExit:()=>void}){
  const playerRef=useRef(player);playerRef.current=player;
  const botsRef=useRef(bots);botsRef.current=bots;
  const roleRef=useRef(role);roleRef.current=role;
- useEffect(()=>{setMobile(matchMedia('(pointer:coarse)').matches)},[]);
+ useEffect(()=>{setMobile(matchMedia('(pointer:coarse)').matches||new URLSearchParams(location.search).has('touch'))},[]);
  useEffect(()=>{
   const down=(event:KeyboardEvent)=>{
    if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.code))event.preventDefault();
@@ -183,7 +183,7 @@ export function SoloTest({character,onExit}:{character:string;onExit:()=>void}){
  const hold=(key:string,on:boolean)=>{if(on)touch.current.add(key);else touch.current.delete(key)};
  const players={solo:player,...bots};
  const left=Object.values(bots).filter(b=>!b.caught).length;
- return <div className="soloPage" onClick={()=>{if(!mobile)document.body.requestPointerLock?.()}}
+ return <div className={'soloPage'+(mobile?' touchMode':'')} onClick={()=>{if(!mobile)document.body.requestPointerLock?.()}}
   >
   <GameScene players={players} selfId="solo" yaw={yaw} pitch={pitch} gemMask={role==='hider'?gemMask:(1<<gems.length)-1} tagCooldown={tagCd}/>
   {mobile&&<TouchLook onLook={(dx,dy)=>{yawRef.current-=dx*.018;pitchRef.current=Math.max(-.18,Math.min(1.05,pitchRef.current+dy*.013));setYaw(yawRef.current);setPitch(pitchRef.current);}}/>}
